@@ -1,0 +1,56 @@
+{
+  "pages": [
+    {
+      "name": "MainPage",
+      "children": [
+        {
+          "name": "Panel",
+          "children": [
+            {
+              "name": "Toolbar",
+              "children": [
+                {
+                  "name": "Toolbar.Primary",
+                  "children": [
+                    {
+                      "name": "Button",
+                      "props": {
+                        "apperance": "primary",
+                        "onClick": {
+                          "component": "Drawer"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Table",
+              "props": {
+                "data": "props(data)"
+              },
+              "children": [
+                {
+                  "name": "Table.Column",
+                  "children": [
+                    {
+                      "name": "Table.HeaderCell",
+                      "children": ["ID"]
+                    },
+                    {
+                      "name": "Table.Cell",
+                      "props": {
+                        "dataKey": "id"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

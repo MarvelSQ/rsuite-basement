@@ -1,0 +1,43 @@
+.rs-container.page {
+  background-color: @B050;
+  height: 100vh;
+
+  .rs-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    & > .rs-sidenav {
+      flex-grow: 1;
+      overflow: hidden;
+    }
+    &.rs-sidebar-collapse > .rs-sidenav {
+      overflow: visible;
+    }
+    & > .nav-toggle {
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+  }
+
+  .rs-content {
+    padding: 60px 40px;
+    .rs-panel {
+      background-color: white;
+      .rs-input-group {
+        display: inline-flex;
+        width: 300px;
+      }
+    }
+  }
+}
+
+.nav-toggle {
+  .rs-dropdown {
+    .rs-icon {
+      width: 56px;
+      height: 56px;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
+}
