@@ -26,6 +26,7 @@ module.exports = {
     before(app) {
       registerApp(app);
     },
+    historyApiFallback: true,
     hot: true,
     injectClient: true,
   },

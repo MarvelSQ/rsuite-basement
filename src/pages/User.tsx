@@ -28,7 +28,7 @@ const headerStyles = {
   overflow: 'hidden',
 };
 
-export default function MainPage() {
+export default function UserPage() {
   const [expand, setExpand] = useState(true);
 
   const [search, setSearch] = useState('');

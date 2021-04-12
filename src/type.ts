@@ -1,26 +1,39 @@
 export enum PropsIdentifer {
-  PROPS = "PROPS",
-  CONST = "CONST",
-  STR = "STR",
-  NUM = "NUM",
-  BOOL = "BOOL",
+  CONST = 'const',
+  PROPS = 'props',
+  STATES = 'states',
+  MEMOS = 'memos',
 }
 
-export type PropsValue = `${PropsIdentifer}.${string}`;
+export type VarValue = {
+  type: PropsIdentifer;
+  name: string;
+};
+
+export type PropsValue = string | VarValue;
+
+export type PropsType = Record<string, PropsValue>;
 
 export type BuildComponent = {
   name: string;
   component: string;
   props: Record<string, PropsValue>;
-  children: BuildComponent | string | PropsValue;
+  children: (BuildComponent | PropsValue)[];
 };
 
 export type Page = {
   name: string;
-  children: BuildComponent[];
+  children: BuildComponent;
 };
 
 export type BuildConfiguration = {
+  dependencies: Record<
+    string,
+    {
+      exports: string[];
+      default: string;
+    }
+  >;
   components: {};
-  page: Page[];
+  pages: Page[];
 };

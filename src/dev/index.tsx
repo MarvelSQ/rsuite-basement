@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainPage from '../pages';
+import Routes from '../routes';
 import './index.less';
 
 const App = () => {
-  return <MainPage />;
+  return <Routes />;
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));

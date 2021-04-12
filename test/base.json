@@ -1,56 +1,112 @@
 {
-  "pages": [
+  "components": {
+    "Panel": {
+      "type": "partial",
+      "require": "rsuite"
+    },
+    "Table": {
+      "type": "partial",
+      "require": "rsuite"
+    },
+    "InputGroup": {
+      "type": "partial",
+      "require": "rsuite"
+    },
+    "Input": {
+      "type": "partial",
+      "require": "rsuite"
+    },
+    "Icon": {
+      "type": "partial",
+      "require": "rsuite"
+    }
+  },
+  "codeshots": [
     {
-      "name": "MainPage",
+      "name": "Layout",
       "children": [
         {
-          "name": "Panel",
-          "children": [
-            {
-              "name": "Toolbar",
-              "children": [
-                {
-                  "name": "Toolbar.Primary",
-                  "children": [
-                    {
-                      "name": "Button",
-                      "props": {
-                        "apperance": "primary",
-                        "onClick": {
-                          "component": "Drawer"
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Table",
-              "props": {
-                "data": "props(data)"
-              },
-              "children": [
-                {
-                  "name": "Table.Column",
-                  "children": [
-                    {
-                      "name": "Table.HeaderCell",
-                      "children": ["ID"]
-                    },
-                    {
-                      "name": "Table.Cell",
-                      "props": {
-                        "dataKey": "id"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "name": "Container",
+          "components": "Container"
         }
       ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "UserListPage",
+      "children": {
+        "name": "Panel",
+        "component": "Panel",
+        "children": [
+          {
+            "name": "div",
+            "component": "div",
+            "props": {
+              "style": "{padding:'20px'}"
+            },
+            "children": [
+              {
+                "type": "props",
+                "name": "pageName"
+              },
+              {
+                "name": "Search",
+                "component": "InputGroup",
+                "children": [
+                  {
+                    "name": "Input",
+                    "component": "Input"
+                  },
+                  {
+                    "name": "InputGroup.Button",
+                    "component": "InputGroup.Button",
+                    "children": [
+                      {
+                        "name": "Icon",
+                        "component": "Icon",
+                        "props": {
+                          "icon": "search"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Table",
+            "component": "Table",
+            "props": {
+              "data": {
+                "type": "props",
+                "name": "data"
+              }
+            },
+            "children": [
+              {
+                "name": "Table.Column",
+                "component": "Table.Column",
+                "children": [
+                  {
+                    "name": "Table.HeaderCell",
+                    "component": "Table.HeaderCell",
+                    "children": ["ID"]
+                  },
+                  {
+                    "name": "Table.Cell",
+                    "component": "Table.Cell",
+                    "props": {
+                      "dataKey": "id"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
