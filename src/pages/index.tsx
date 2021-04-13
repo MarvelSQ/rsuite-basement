@@ -18,7 +18,7 @@ import {
 } from 'rsuite';
 import TablePagination from 'rsuite/lib/Table/TablePagination';
 
-const headerStyles = {
+const headerStyles: React.CSSProperties = {
   padding: 18,
   fontSize: 16,
   height: 56,

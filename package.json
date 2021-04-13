@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --progress --color",
+    "type-compile": "tsc",
     "compile": "rollup --config",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +26,11 @@
     "@types/webpack-dev-server": "^3.11.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.1",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
     "html-webpack-plugin": "^5.3.1",
     "less": "^4.1.1",
     "less-loader": "^8.1.0",

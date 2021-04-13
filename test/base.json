@@ -19,6 +19,10 @@
     "Icon": {
       "type": "partial",
       "require": "rsuite"
+    },
+    "useControl": {
+      "type": "default",
+      "require": "./utils/useControl"
     }
   },
   "codeshots": [
@@ -56,7 +60,19 @@
                 "children": [
                   {
                     "name": "Input",
-                    "component": "Input"
+                    "component": "Input",
+                    "props": {
+                      "value": {
+                        "type": "states",
+                        "body": "useState('')",
+                        "name": "search.value"
+                      },
+                      "onChange": {
+                        "type": "states",
+                        "body": "useState('')",
+                        "name": "search.change"
+                      }
+                    }
                   },
                   {
                     "name": "InputGroup.Button",
@@ -66,7 +82,7 @@
                         "name": "Icon",
                         "component": "Icon",
                         "props": {
-                          "icon": "search"
+                          "icon": "\"search\""
                         }
                       }
                     ]
@@ -78,10 +94,56 @@
           {
             "name": "Table",
             "component": "Table",
+            "controller": {
+              "member": [
+                {
+                  "type": "states",
+                  "name": "data",
+                  "value": "{records:[];page:{current:1,pagesize:30,total:0}}"
+                },
+                {
+                  "type": "states",
+                  "name": "params",
+                  "value": {
+                    "member": [
+                      {
+                        "type": "number",
+                        "name": "page",
+                        "value": "1"
+                      },
+                      {
+                        "type": "string",
+                        "name": "orderColumn",
+                        "value": "''"
+                      },
+                      {
+                        "type": "'desc'|'asc'",
+                        "name": "orderColumn",
+                        "value": "'desc'"
+                      },
+                      {
+                        "type": "number",
+                        "name": "pagesize",
+                        "value": "30"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
             "props": {
               "data": {
-                "type": "props",
-                "name": "data"
+                "type": "states",
+                "name": "table.data"
+              },
+              "onChange": {
+                "type": "callbacks",
+                "name": "handleTableChange"
+              },
+              "page": {
+                "type": "memos",
+                "name": "page",
+                "body": "useMemo(()=>{},[])"
               }
             },
             "children": [
@@ -98,7 +160,7 @@
                     "name": "Table.Cell",
                     "component": "Table.Cell",
                     "props": {
-                      "dataKey": "id"
+                      "dataKey": "\"id\""
                     }
                   }
                 ]
